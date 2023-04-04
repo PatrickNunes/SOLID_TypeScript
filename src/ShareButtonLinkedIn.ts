@@ -1,9 +1,10 @@
-import AbstractShareButton from "./AbstractShareButton";
+import AbstractLinkShareButton from "./AbstractLinkShareButton";
+import EventHandler from "./EventHandler";
 
-export default class ShareButtonLinkedIn extends AbstractShareButton{
+export default class ShareButtonLinkedIn extends AbstractLinkShareButton{
 
-    constructor(clazz:string,url:string){
-        super(clazz,url);
+    constructor(eventHanlder:EventHandler,clazz:string,url:string){
+        super(eventHanlder,clazz,url);
     }
 
     createLink(): string {

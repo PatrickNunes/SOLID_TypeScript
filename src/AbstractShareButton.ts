@@ -1,21 +1,20 @@
 import EventHandler from "./EventHandler";
+import DOMEventHandler from "./DOMEventHandler";
 
 export default abstract class AbstractShareButton{
 
-    url:string
     eventHandler:EventHandler
     clazz:string
 
-    constructor(clazz:string,url:string){
-        this.clazz = clazz
-        this.url = url;
-        this.eventHandler = new EventHandler()
+    constructor(eventeHandler:EventHandler,clazz:string){
+        this.clazz = clazz;
+        this.eventHandler = eventeHandler;
     }
 
-    abstract createLink():string;
+   abstract createAction();
 
     bind(){   
-        const link:string = this.createLink();
-        this.eventHandler.addEventListenerToClass(this.clazz,"click",() => window.open(link));   
+        const action = this.createAction();
+        this.eventHandler.addEventListenerToClass(this.clazz,"click",action);   
     }
 }
